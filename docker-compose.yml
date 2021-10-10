@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  api-yuk-haji:
+    container_name: api-yukhaji
+    image: kotlin-restful-api-yukhaji:0.0.1
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_USERNAME: yukhaji
+      DATABASE_PASSWORD: PNSJkxXvVNDAhePMuExTBuRR
+      DATABASE_URL: jdbc:postgresql://restful-yuk-haji:5432/yukhajidb
+  restful-api-yuk-haji:
+    container_name: "restful-yuk-haji"
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: PNSJkxXvVNDAhePMuExTBuRR
+      POSTGRES_USER: yukhaji
+      POSTGRES_DB: yukhajidb
